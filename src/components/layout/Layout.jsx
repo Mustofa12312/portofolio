@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { Outlet } from 'react-router-dom';
 import Navbar from '../common/Navbar';
 import Footer from '../common/Footer';
 
-const Layout = () => {
+const Layout = ({ children }) => {
   const layoutRef = useRef(null);
 
   useEffect(() => {
@@ -37,7 +36,7 @@ const Layout = () => {
       <div className="relative z-10 flex-grow flex flex-col">
         <Navbar />
         <main className="flex-grow pt-28 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-          <Outlet />
+          {children}
         </main>
         <Footer />
       </div>
