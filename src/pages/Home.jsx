@@ -3,8 +3,6 @@ import PageWrapper from '../components/layout/PageWrapper';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiGithub, FiCoffee } from 'react-icons/fi';
-import TerminalWidget from '../components/common/TerminalWidget';
-import { GitHubCalendar } from 'react-github-calendar';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -105,29 +103,6 @@ const Home = () => {
             </a>
           </motion.div>
 
-          {/* Interactive Terminal */}
-          <motion.div variants={itemVariants}>
-            <TerminalWidget />
-          </motion.div>
-
-          {/* Live GitHub Stats */}
-          <motion.div variants={itemVariants} className="mt-16 bg-white/5 dark:bg-slate-900/50 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-sm">
-            <h3 className="text-xl font-medium mb-6 text-slate-800 dark:text-slate-200 flex items-center gap-2">
-              <FiGithub /> GitHub Contributions
-            </h3>
-            <div className="overflow-x-auto overflow-y-hidden pb-4">
-              <GitHubCalendar 
-                username="mustofa" 
-                colorScheme="dark"
-                fontSize={12}
-                blockSize={12}
-                blockMargin={4}
-                theme={{
-                  dark: ['#1e1e2e', '#39d353', '#26a641', '#006d32', '#0e4429']
-                }}
-              />
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </PageWrapper>
