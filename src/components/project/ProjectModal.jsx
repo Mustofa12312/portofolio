@@ -15,11 +15,9 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
     };
   }, [isOpen]);
 
-  if (!isOpen || !project) return null;
-
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isOpen && project && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
           {/* Backdrop */}
           <motion.div

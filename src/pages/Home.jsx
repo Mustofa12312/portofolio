@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiGithub, FiCoffee } from 'react-icons/fi';
 import TerminalWidget from '../components/common/TerminalWidget';
-import GitHubCalendar from 'react-github-calendar';
+import { GitHubCalendar } from 'react-github-calendar';
 
 const Home = () => {
   const { t } = useTranslation();
