@@ -54,7 +54,7 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 hover:shadow-xl transition-shadow flex flex-col h-full group"
+                className="liquid-glass border border-slate-200/50 dark:border-slate-700/50 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group relative overflow-hidden"
               >
                 <div className="mb-4">
                   <span className="text-xs font-semibold px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">

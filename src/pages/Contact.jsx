@@ -35,7 +35,7 @@ const Contact = () => {
           {t('contact.title')}
         </h1>
 
-        <div className="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-3xl p-8 shadow-sm">
+        <div className="liquid-glass border border-slate-200/50 dark:border-slate-700/50 rounded-3xl p-8 shadow-xl">
           {status === 'success' ? (
             <div className="text-center py-12">
               <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">✓</div>

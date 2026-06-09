@@ -23,7 +23,7 @@ const Skills = () => {
         
         <div className="space-y-12">
           {skillsData.map((skillGroup, index) => (
-            <div key={index} className="bg-white dark:bg-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
+            <div key={index} className="liquid-glass rounded-2xl p-6 border border-slate-200/50 dark:border-slate-700/50 shadow-sm hover:shadow-xl transition-all duration-300">
               <h2 className="text-2xl font-semibold mb-6 text-slate-800 dark:text-slate-200">{skillGroup.category}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {skillGroup.items.map((skill, idx) => (

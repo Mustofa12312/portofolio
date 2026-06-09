@@ -16,7 +16,7 @@ const About = () => {
             {t('about.desc')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+            <div className="liquid-glass p-6 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 shadow-sm hover:shadow-xl transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Focus Areas</h3>
               <ul className="space-y-2 text-slate-600 dark:text-slate-400">
                 <li>✨ Web Development</li>

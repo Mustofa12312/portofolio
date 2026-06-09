@@ -29,7 +29,7 @@ const Blog = () => {
 
         <div className="space-y-6">
           {mockBlogs.map((blog) => (
-            <article key={blog.id} className="p-6 bg-white dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-500 transition-colors cursor-pointer group">
+            <article key={blog.id} className="p-6 liquid-glass rounded-2xl border border-slate-200/50 dark:border-slate-700/50 hover:border-blue-300 dark:hover:border-blue-500 hover:-translate-y-1 hover:shadow-xl transition-all cursor-pointer group">
               <div className="flex items-center gap-4 mb-3 text-sm">
                 <span className="text-blue-600 dark:text-blue-400 font-medium">{blog.category}</span>
                 <span className="text-slate-400">•</span>
