@@ -2,7 +2,7 @@ import React from 'react';
 import PageWrapper from '../components/layout/PageWrapper';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiGithub, FiCoffee } from 'react-icons/fi';
 
 const Home = () => {
   const { t } = useTranslation();
@@ -22,38 +22,35 @@ const Home = () => {
 
   return (
     <PageWrapper>
-      <div className="min-h-[85vh] flex items-center pt-8">
+      <div className="min-h-[85vh] flex items-center pt-8 relative">
         <motion.div 
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="max-w-3xl"
+          className="max-w-4xl"
         >
-          {/* Minimalist Status */}
-          <motion.div variants={itemVariants} className="flex items-center gap-3 mb-10">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-slate-500 dark:bg-slate-400"></span>
-            </span>
-            <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 font-medium">
-              Available for Work
-            </span>
-          </motion.div>
-
-          {/* Clean Avatar */}
-          <motion.div variants={itemVariants} className="mb-8">
-            <div className="w-16 h-16 rounded-full overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 border border-slate-200 dark:border-slate-800">
-              <img 
-                src="https://api.dicebear.com/7.x/avataaars/svg?seed=Mustofa&backgroundColor=transparent" 
-                alt="Mustofa" 
-                className="w-full h-full object-cover bg-slate-100 dark:bg-slate-800"
-              />
+          {/* Top Bar: Status & Currently */}
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-12">
+            <div className="flex items-center gap-3">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 font-medium">
+                Available for Work
+              </span>
+            </div>
+            
+            <div className="hidden sm:block w-px h-4 bg-slate-300 dark:bg-slate-700"></div>
+            
+            <div className="text-sm text-slate-500 dark:text-slate-400">
+              Currently exploring <span className="text-slate-900 dark:text-slate-200 font-medium">AI Automation</span> & <span className="text-slate-900 dark:text-slate-200 font-medium">Fullstack Dev</span>
             </div>
           </motion.div>
 
           {/* Minimalist Headline */}
-          <motion.h1 variants={itemVariants} className="text-4xl md:text-6xl font-normal tracking-tight mb-8 text-slate-900 dark:text-white leading-[1.1]">
-            Hello, I'm <span className="font-medium">Mustofa.</span><br/>
+          <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-normal tracking-tight mb-8 text-slate-900 dark:text-white leading-[1.1]">
+            Hello, I'm <span className="font-semibold italic">Mustofa.</span><br/>
             {t('hero.headline')}
           </motion.h1>
           
@@ -62,11 +59,29 @@ const Home = () => {
             {t('hero.subheadline')}
           </motion.p>
 
+          {/* Quick Stats / Social Proof */}
+          <motion.div variants={itemVariants} className="flex flex-wrap gap-8 mb-12">
+            <div>
+              <p className="text-3xl font-light text-slate-900 dark:text-white">10+</p>
+              <p className="text-sm text-slate-500 font-medium uppercase tracking-wider">Projects</p>
+            </div>
+            <div>
+              <p className="text-3xl font-light text-slate-900 dark:text-white">3+</p>
+              <p className="text-sm text-slate-500 font-medium uppercase tracking-wider">Tech Stacks</p>
+            </div>
+            <div>
+              <p className="text-3xl font-light flex items-center gap-2 text-slate-900 dark:text-white">
+                <FiGithub className="text-slate-400" />
+              </p>
+              <p className="text-sm text-slate-500 font-medium uppercase tracking-wider mt-1">Active</p>
+            </div>
+          </motion.div>
+
           {/* Minimalist Links */}
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6">
+          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-8 items-start sm:items-center">
             <a 
               href="/projects" 
-              className="group flex items-center gap-2 text-slate-900 dark:text-white font-medium hover:text-slate-500 dark:hover:text-slate-300 transition-colors"
+              className="group flex items-center gap-2 text-white bg-slate-900 dark:text-slate-900 dark:bg-white px-6 py-3 rounded-full font-medium hover:scale-105 transition-transform"
             >
               {t('hero.viewProjects')} 
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -75,14 +90,14 @@ const Home = () => {
             <a 
               href="/cv/Mustofa-CV.pdf" 
               target="_blank" 
-              className="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-slate-900 dark:after:bg-white after:transition-all after:duration-300"
             >
               {t('hero.downloadCV')}
             </a>
 
             <a 
               href="/contact" 
-              className="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-white transition-colors"
+              className="text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-slate-900 dark:after:bg-white after:transition-all after:duration-300"
             >
               {t('hero.contactMe')}
             </a>
