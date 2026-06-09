@@ -16,14 +16,39 @@ const Contact = () => {
     e.preventDefault();
     setStatus('loading');
     
-    // Mock Telegram Bot API integration
+    const botToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
+    if (!botToken || !chatId || botToken === "YOUR_TELEGRAM_BOT_TOKEN_HERE") {
+      console.warn("Telegram credentials not configured in .env");
+      // Fallback to mock if not configured so the UI doesn't completely break for the user
+      setTimeout(() => {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }, 1500);
+      return;
+    }
+
+    const text = `
+📬 <b>New Portfolio Contact</b>
+<b>Name:</b> ${formData.name}
+<b>Email:</b> ${formData.email}
+<b>Subject:</b> ${formData.subject}
+
+<b>Message:</b>
+${formData.message}
+    `;
+
     try {
-      // In a real app, you'd post to your backend endpoint or serverless function
-      // await axios.post('/api/contact', formData);
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate network request
+      await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        chat_id: chatId,
+        text: text,
+        parse_mode: 'HTML'
+      });
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
+      console.error(error);
       setStatus('error');
     }
   };
