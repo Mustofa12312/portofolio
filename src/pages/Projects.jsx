@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PageWrapper from '../components/layout/PageWrapper';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import ProjectModal from '../components/project/ProjectModal';
 
 const projectsData = [
   { id: 1, title: 'Population Data Validation', category: 'Data', tech: ['Python', 'Pandas', 'Excel'], desc: 'Duplicate Detection, Similarity Matching, Data Validation.' },
@@ -15,6 +16,7 @@ const categories = ['All', 'Web', 'Mobile', 'Python', 'AI', 'Data'];
 
 const Projects = () => {
   const { t } = useTranslation();
+  const [selectedProject, setSelectedProject] = useState(null);
   const [activeFilter, setActiveFilter] = useState('All');
 
   const filteredProjects = activeFilter === 'All' 
@@ -54,7 +56,8 @@ const Projects = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
-                className="liquid-glass border border-slate-200/50 dark:border-slate-700/50 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group relative overflow-hidden"
+                className="liquid-glass border border-slate-200/50 dark:border-slate-700/50 rounded-2xl p-6 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col h-full group relative overflow-hidden cursor-pointer"
+                onClick={() => setSelectedProject(project)}
               >
                 <div className="mb-4">
                   <span className="text-xs font-semibold px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">
@@ -79,6 +82,12 @@ const Projects = () => {
           </AnimatePresence>
         </motion.div>
       </div>
+      
+      <ProjectModal 
+        isOpen={!!selectedProject} 
+        project={selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </PageWrapper>
   );
 };
